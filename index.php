@@ -45,7 +45,6 @@
 
 
     <?php
-session_start();
         
 if(isset($_POST['envoi']))
 {
@@ -53,8 +52,8 @@ if(isset($_POST['envoi']))
 if (!empty($_POST['nom']) AND !empty($_POST['mail']) AND ! empty($_POST['message']))
 {
 $header="MIME-Version: 1.0\r\n";
-$header.='From:"Thomas"<totodu29310@gmail.com>'."\n";
-$header.='Content-Type:multipart/mixed; charset="uft-8"'."\n";
+$header.='From:"Thomas"<foch29310@gmail.com>'."\n";
+$header.='Content-Type:text/html; charset="uft-8"'."\n";
 $header.='Content-Transfer-Encoding: 8bit';
 // $objet = ($_POST['objet']); fonctionne pas
 
@@ -74,11 +73,15 @@ $message='
 </html>
 ';
 
-mail("totodu29310@gmail.com", "CONTACT - SITE", $message, $header);
-    $msg="Votre message a bien été envoyé !";
+mail("foch29310@gmail.com", "CONTACT - SITE", $message, $header);
+    $msg= '<div class="position boite-1 alert alert-success">
+    <strong>Success !</strong>
+  </div>';
 }
     else {
-        $msg ="Tous les champs doivent être complétés";
+        $msg ="  <div class='position boite-1 alert alert-danger'>
+    <strong>Error !</strong>
+  </div>";
     }
 
 }
